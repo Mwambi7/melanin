@@ -1,0 +1,187 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Melanin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./welcomef_files/wc.css">
+    <style>
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand mb-0 h1">Welcome To Melanin <?php echo isset($username) ? htmlspecialchars($username) : ''; ?></a>
+            <form class="d-flex">
+                <input type="text" class="form-control me-2" placeholder="Search Products">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </form>
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="http://localhost/melanin/jj/cart.php" class="nav-link active">Cart</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Logout Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to logout?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <form action="http://localhost/melanin/jj/logout.php" method="post">
+                        <button type="submit" class="btn btn-outline-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row mt-4">
+            <!-- Shea Butter Card -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="./welcomef_files/download.jpeg" width="350" height="250">
+                    <div class="card-body">
+                        <h5 class="card-title">Shea Butter</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Description: Whipped butter for elegant skin</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Price(ksh)= 2500.00</h6>
+                        <form method="post" action="http://localhost/melanin/jj/cart.php?action=add&id=18">
+                            <input type="text" name="quantity" value="1">
+                            <input type="submit" name="addc" style="margin-top: 5px;" class="btn btn-dark" value="Add to Cart">
+                            <input type="hidden" name="hidden_name" value="Shea Butter">
+                            <input type="hidden" name="hidden_price" value="2500.00">
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <!-- Beard Kit Card -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="./welcomef_files/Beard kit.jpg" width="350" height="250">
+                    <div class="card-body">
+                        <h5 class="card-title">Beard Kit</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Description: Beard growth</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Price(ksh)= 3000.00</h6>
+                        <form method="post" action="http://localhost/melanin/jj/cart.php?action=add&id=20">
+                            <input type="text" name="quantity" value="1">
+                            <input type="submit" name="addc" style="margin-top: 5px;" class="btn btn-dark" value="Add to Cart">
+                            <input type="hidden" name="hidden_name" value="Beard Kit">
+                            <input type="hidden" name="hidden_price" value="3000.00">
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <!-- Beard Growth Oil Card -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="./welcomef_files/beard.png" width="350" height="250">
+                    <div class="card-body">
+                        <h5 class="card-title">Beard Growth Oil</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Description: Helps in faster beard growth</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Price(ksh)= 1200.00</h6>
+                        <form method="post" action="http://localhost/melanin/jj/cart.php?action=add&id=21">
+                            <input type="text" name="quantity" value="1">
+                            <input type="submit" name="addc" style="margin-top: 5px;" class="btn btn-dark" value="Add to Cart">
+                            <input type="hidden" name="hidden_name" value="Beard Growth Oil">
+                            <input type="hidden" name="hidden_price" value="1200.00">
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <!-- Manscaped Grooming Kit Card -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="./welcomef_files/beard kit 2.jpg" width="350" height="250">
+                    <div class="card-body">
+                        <h5 class="card-title">Manscaped Grooming Kit</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Description: For grooming</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Price(ksh)= 4500.00</h6>
+                        <form method="post" action="http://localhost/melanin/jj/cart.php?action=add&id=22">
+                            <input type="text" name="quantity" value="1">
+                            <input type="submit" name="addc" style="margin-top: 5px;" class="btn btn-dark" value="Add to Cart">
+                            <input type="hidden" name="hidden_name" value="Manscaped Grooming Kit">
+                            <input type="hidden" name="hidden_price" value="4500.00">
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <!-- Beard Wash Card -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="./welcomef_files/beard wash.jpg" width="350" height="250">
+                    <div class="card-body">
+                        <h5 class="card-title">Beard Wash</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Description: Beard wash</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Price(ksh)= 850.00</h6>
+                        <form method="post" action="http://localhost/melanin/jj/cart.php?action=add&id=24">
+                            <input type="text" name="quantity" value="1">
+                            <input type="submit" name="addc" style="margin-top: 5px;" class="btn btn-dark" value="Add to Cart">
+                            <input type="hidden" name="hidden_name" value="Beard Wash">
+                            <input type="hidden" name="hidden_price" value="850.00">
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Melanin Skincare and Grooming | &copy; 2024</p>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9TTg6XkzR0C4pcx0xH94U5paOSi5S5O/7b2E9PdjlUO9dxtl0Qu" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha384-lZN37fF97H4cF0dHz8t52kFz5nJ5d0zX4n4zjEO2tUV7k6v5aXYvH8gV9z5Tq8F5" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form[action*="cart.php?action=add"]');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const itemName = form.querySelector('input[name="hidden_name"]').value;
+                    const confirmation = confirm(`Are you sure you want to add ${itemName} to your cart?`);
+                    if (confirmation) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
